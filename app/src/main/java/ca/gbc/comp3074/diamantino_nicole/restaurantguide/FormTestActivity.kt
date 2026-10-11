@@ -3,7 +3,7 @@ package ca.gbc.comp3074.diamantino_nicole.restaurantguide
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import ca.gbc.comp3074.diamantino_nicole.restaurantguide.screens.AddEditRestaurantScreen
+import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.AddEditRestaurantScreen
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.theme.RestaurantGuideTheme
 
 

@@ -18,7 +18,7 @@ fun HomeScreen(
     modifier: Modifier = Modifier,
     onRestaurantClick: (String) -> Unit,
     onAboutClick: () -> Unit,
-    onMapClick: () -> Unit
+    onMapClick: () -> Unit,
     onAddRestaurantClick: () -> Unit
 ) {
 

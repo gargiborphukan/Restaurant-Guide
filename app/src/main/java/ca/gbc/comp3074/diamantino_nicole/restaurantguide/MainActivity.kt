@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -12,17 +11,10 @@ import androidx.compose.foundation.layout.Box
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.HomeScreen
 import androidx.compose.ui.Modifier
 import androidx.compose.runtime.*
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.unit.dp
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.AboutScreen
-import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.HomeScreen
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.RestaurantDetailsScreen
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.theme.RestaurantGuideTheme
-import ca.gbc.comp3074.diamantino_nicole.restaurantguide.screens.AddEditRestaurantScreen
+import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.AddEditRestaurantScreen
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.MapScreen
 
 class MainActivity : ComponentActivity() {
