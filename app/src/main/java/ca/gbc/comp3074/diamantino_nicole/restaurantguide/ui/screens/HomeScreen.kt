@@ -1,5 +1,6 @@
 package ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -11,15 +12,25 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 
+
 @Composable
-fun HomeScreen(   onRestaurantClick: (String) -> Unit) {
+fun HomeScreen(
+    modifier: Modifier = Modifier,
+    onRestaurantClick: (String) -> Unit,
+    onAboutClick: () -> Unit,
+    onMapClick: () -> Unit
+
+) {
 
     var searchQuery by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+
     ) {
 
         Text(
@@ -80,6 +91,25 @@ fun HomeScreen(   onRestaurantClick: (String) -> Unit) {
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Add Restaurant")
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+
+        }
+        Button(
+            onClick = onAboutClick
+        )
+        {
+            Text("About Us")
+
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+        Button(
+            onClick = onMapClick
+        ) {
+            Text("Map & Directions")
+
+            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
