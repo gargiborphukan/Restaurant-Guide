@@ -19,7 +19,7 @@ fun HomeScreen(
     onRestaurantClick: (String) -> Unit,
     onAboutClick: () -> Unit,
     onMapClick: () -> Unit
-
+    onAddRestaurantClick: () -> Unit
 ) {
 
     var searchQuery by remember { mutableStateOf("") }
@@ -86,7 +86,7 @@ fun HomeScreen(
 
         Button(
             onClick = {
-                // Add Restaurant navigation will be implemented later
+                onAddRestaurantClick()
             },
             modifier = Modifier.fillMaxWidth()
         ) {

@@ -22,6 +22,7 @@ import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.AboutScreen
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.HomeScreen
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.RestaurantDetailsScreen
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.theme.RestaurantGuideTheme
+import ca.gbc.comp3074.diamantino_nicole.restaurantguide.screens.AddEditRestaurantScreen
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.MapScreen
 
 class MainActivity : ComponentActivity() {
@@ -60,7 +61,9 @@ class MainActivity : ComponentActivity() {
                                         selectedRestaurant = restaurantName
                                         currentScreen = "Details"
                                     },
-
+                                    onAddRestaurantClick = {
+                                           currentScreen = "add"
+                                        }
                                 )
                                         "About" -> AboutScreen(
                                             onBack = { currentScreen = "Home"
@@ -81,6 +84,7 @@ class MainActivity : ComponentActivity() {
 
                                     }
                                 )
+                                "add" -> AddEditRestaurantScreen()
                             }
                         }
                     }
