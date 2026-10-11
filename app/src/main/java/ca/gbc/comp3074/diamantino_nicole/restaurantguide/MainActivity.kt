@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -12,10 +13,17 @@ import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.HomeScreen
 import androidx.compose.ui.Modifier
 import androidx.compose.runtime.*
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.unit.dp
+import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.AboutScreen
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.HomeScreen
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.RestaurantDetailsScreen
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.theme.RestaurantGuideTheme
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.screens.AddEditRestaurantScreen
+import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.MapScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -27,33 +35,53 @@ class MainActivity : ComponentActivity() {
                 RestaurantGuideTheme {
 
                     var currentScreen by remember {
-                        mutableStateOf("home")
+                        mutableStateOf("Home")
                     }
+
 
                     Scaffold(
                         modifier = Modifier.fillMaxSize()
                     ) { innerPadding ->
 
                         Box(
-                            modifier = Modifier.padding(innerPadding)
+                            modifier = Modifier
+                                .padding(innerPadding)
                         ) {var selectedRestaurant by remember {
                             mutableStateOf("Bella Italia")
                         }
                             when (currentScreen) {
-                                "home" -> HomeScreen(
+                                "Home" -> HomeScreen(
+                                     onAboutClick = {
+                                        currentScreen = "About"
+                                    }, //changes to about screen
+                                      onMapClick = {
+                                         currentScreen = "Map"
+                                     },
                                     onRestaurantClick = { restaurantName ->
                                         selectedRestaurant = restaurantName
-                                        currentScreen = "details"
+                                        currentScreen = "Details"
                                     },
                                     onAddRestaurantClick = {
                                            currentScreen = "add"
                                         }
                                 )
+                                        "About" -> AboutScreen(
+                                            onBack = { currentScreen = "Home"
+                                            }
+                                        )
 
-                                "details" -> RestaurantDetailsScreen(
+                                        "Map" -> MapScreen(
+                                            onBack = { currentScreen = "Home"
+                                            } //back to home
+                                        )
+
+
+                                "Details" -> RestaurantDetailsScreen(
                                     restaurantName = selectedRestaurant,
                                     onBackClick = {
-                                        currentScreen = "home"
+                                        currentScreen = "Home"
+
+
                                     }
                                 )
                                 "add" -> AddEditRestaurantScreen()
@@ -64,3 +92,9 @@ class MainActivity : ComponentActivity() {
             }
     }
 }
+
+
+
+
+
+
