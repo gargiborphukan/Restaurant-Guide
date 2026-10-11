@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.Box
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.HomeScreen
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.screens.RestaurantDetailsScreen
 import ca.gbc.comp3074.diamantino_nicole.restaurantguide.ui.theme.RestaurantGuideTheme
+import ca.gbc.comp3074.diamantino_nicole.restaurantguide.screens.AddEditRestaurantScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -43,7 +44,10 @@ class MainActivity : ComponentActivity() {
                                     onRestaurantClick = { restaurantName ->
                                         selectedRestaurant = restaurantName
                                         currentScreen = "details"
-                                    }
+                                    },
+                                    onAddRestaurantClick = {
+                                           currentScreen = "add"
+                                        }
                                 )
 
                                 "details" -> RestaurantDetailsScreen(
@@ -52,6 +56,7 @@ class MainActivity : ComponentActivity() {
                                         currentScreen = "home"
                                     }
                                 )
+                                "add" -> AddEditRestaurantScreen()
                             }
                         }
                     }

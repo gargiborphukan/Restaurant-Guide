@@ -12,7 +12,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 
 @Composable
-fun HomeScreen(   onRestaurantClick: (String) -> Unit) {
+fun HomeScreen(
+    onRestaurantClick: (String) -> Unit,
+    onAddRestaurantClick: () -> Unit
+) {
 
     var searchQuery by remember { mutableStateOf("") }
 
@@ -75,7 +78,7 @@ fun HomeScreen(   onRestaurantClick: (String) -> Unit) {
 
         Button(
             onClick = {
-                // Add Restaurant navigation will be implemented later
+                onAddRestaurantClick()
             },
             modifier = Modifier.fillMaxWidth()
         ) {
